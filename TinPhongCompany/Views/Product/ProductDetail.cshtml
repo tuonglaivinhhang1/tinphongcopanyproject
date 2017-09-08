@@ -3,7 +3,7 @@
     ViewBag.Title = Model.SeoTitle;
     ViewBag.MainUrl = "https://www.tpwindow.vn/" + ViewBag.UrlMainProduct + "--" + Model.ID;
     ViewBag.Description = Model.Description;
-
+    ViewBag.Keyword = Model.MetaKeywords;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var relative = (Model.EF.Product)ViewBag.Relative;
 }
