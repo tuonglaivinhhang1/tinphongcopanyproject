@@ -2,7 +2,7 @@
 @using System.Globalization;
 @{
     ViewBag.Title = Model.SeoTitle;
-    ViewBag.Description = Model.Description;
+    ViewBag.Description = Model.MetaDescriptions;
     ViewBag.Keyword = Model.MetaKeywords;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var listproduct = (List<Model.EF.Product>)ViewBag.ListProduct;

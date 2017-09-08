@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = Model.SeoTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Description = Model.Description;
+    ViewBag.Description = Model.MetaDescriptions;
     ViewBag.Keyword = Model.MetaKeywords;
     var listproduct = (List<Model.EF.Product>)ViewBag.ListProduct;
 }
