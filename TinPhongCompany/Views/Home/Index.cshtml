@@ -1,0 +1,472 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "CTY TNHH SX TM DV XD TÍN PHONG | Chuyên sản xuất, lắp ráp các hệ thống cửa kính cường lực, cửa cuốn, cửa sắt, cửa nhôm xingfa tại TPHCM | Uy tín chất lượng hàng đầu";
+    ViewBag.MainUrl = "https://www.tpwindow.vn/";
+    ViewBag.Description = "CTY TNHH SX TM DV XD TÍN PHONG | Chuyên sản xuất, lắp ráp các hệ thống cửa kính cường lực, cửa cuốn, cửa sắt, cửa nhôm xingfa tại TPHCM | Uy tín chất lượng hàng đầu";
+    var hotProjectContent = (Model.EF.Content)ViewBag.ProjectHot;
+    var listprojecthot = (List<Model.EF.Content>)ViewBag.ListRelativeProject;
+    string urlhotproject = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@functions {
+    public string ConvertKhongDau(string inputText)
+    {
+        string stFormD = inputText.Normalize(System.Text.NormalizationForm.FormD);
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        string str = "";
+        for (int i = 0; i <= stFormD.Length - 1; i++)
+        {
+            UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(stFormD[i]);
+            if (uc == UnicodeCategory.NonSpacingMark == false)
+            {
+                if (stFormD[i] == 'đ')
+                    str = "d";
+                else if (stFormD[i] == 'Đ')
+                    str = "D";
+                else if (stFormD[i] == '\r' | stFormD[i] == '\n')
+                    str = "";
+                else if (stFormD[i] == ' ' || stFormD[i] == ':')
+                    str = "-";
+                else
+                    str = stFormD[i].ToString();
+
+                sb.Append(str);
+            }
+
+        }
+        return sb.ToString();
+    }
+}
+
+<!---Begin main content-->
+<div class="fr col-750">
+    <div class="clearfix">
+        <div class="fl mar-right col-550">
+            <div id="centerPanel"></div>
+        </div>
+        <div class="fr col-190">
+            <div id="rightPanel">
+                <div class="html-content-module"><meta content="-b-lkVgbHMTnPyHBiMOUpdZH6t2OJPQ26SpQoLHbhGE" name="google-site-verification" /></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="centerPanel2">
+        <!---Begin main tin tức-->
+        <div id="newsMulitiColum" class="clearfix">
+            <table cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+                <tr>
+                    <!---Begin phần tin tức công ty-->
+                    <td class="items" align="left" valign="top" style="width:50%;">
+                        <div class="items0">
+                            <div class="module">
+                                <div class="box-title">
+                                    <h3>
+                                        <span>TIN TỨC CÔNG TY</span>
+                                    </h3>
+                                    <div>
+                                        <a href='#'
+                                           class="view-all">&nbsp;</a>
+                                    </div>
+                                </div>
+                                <div class="md">
+                                    <div class="mr">
+                                        <div class="ml">
+                                            <div class="box-cont">
+                                                <div>
+                                                    <!---Begin TIN ĐẦU-->
+                                                    @*<div class="news-item01 clearfix">
+                                                        <a title="TÍN PHONG THÀNH LẬP XƯỞNG SẢN XUẤT VÀ LẮP RÁP Ở THỦ ĐỨC..."
+                                                        style="border-width:0px;" />
+                                                        <h4>
+                                                        <a href="#">TÍN PHONG THÀNH LẬP XƯỞNG SẢN XUẤT VÀ LẮP RÁP Ở THỦ ĐỨC...</a>
+                                                        </h4><p>Tín Phong Window xin tr&acirc;n trọng th&ocirc;ng b&aacute;o về việc thành lập xưởng lắp ráp và sản xuất ở Thủ Đức...</p>
+                                                        <div class="tar">
+                                                        <a class="contine" href="#">Xem thêm</a>
+                                                        </div>
+                                                        </div>*@
+                                                    <!---Begin TIN LIÊN QUAN-->
+                                                    <div>
+                                                        <div class="new-title">Tin liên quan</div>
+                                                        @*<div class="other-news">
+                                                            <table cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+                                                            <tr>
+                                                            <td class="items" align="left" valign="top"><a title="#">Thông báo về việc thành lập website https://TPWINDOW.VN</a></td>
+                                                            </tr>
+
+                                                            </table>
+                                                            </div>*@
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="br"><div class="bl"><div class="bm"></div></div></div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <!---Begin phần tin tức dự án-->
+                    <td class="items" align="left" valign="top" style="width:50%;">
+                        <div class="items1">
+                            <div class="module">
+                                <div class="box-title">
+                                    <h3><span>TIN DỰ ÁN</span></h3>
+                                    <div>
+                                        <a href='' class="view-all">&nbsp;</a>
+
+                                    </div>
+                                </div>
+
+                                <div class="md">
+                                    <div class="mr">
+                                        <div class="ml">
+                                            <div class="box-cont">
+                                                <div>
+                                                    <!--begin tin lớn-->
+                                                    <div class="news-item01 clearfix>
+
+                                                        @if (hotProjectContent.CategoryID == 1)
+                                                        {
+                                                            urlhotproject = "/cac-du-an-da-thi-cong/" + ConvertKhongDau(hotProjectContent.Name) + "--" + hotProjectContent.ID;
+                                                        }
+                                                        else if (hotProjectContent.CategoryID == 2)
+                                                        {
+                                                            urlhotproject = "/tin-du-an-dang-thi-cong/" + ConvertKhongDau(hotProjectContent.Name) + "--" + hotProjectContent.ID;
+                                                        }
+                                                        <a title="@hotProjectContent.SeoTitle" href="@urlhotproject" alt="" style="border-width:0px;" />
+                                                        <h4>
+                                                            <a href="@urlhotproject">@hotProjectContent.Name</a>
+                                                        </h4>
+                                                        <p>@hotProjectContent.Description</p><div class="tar">
+                                                            <a class="contine" href="@urlhotproject">Xem thêm</a>
+                                                        </div>
+                                                    </div>
+                                                    <!--begin tin liên quan-->
+                                                    <div>
+                                                        <div class="new-title">Tin liên quan</div>
+                                                        <div class="other-news">
+                                                            <table cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+                                                                @for (int i = 0; i < listprojecthot.Count; i++)
+                                                                {
+                                                                    if (i == 0)//là thằng top Hot
+                                                                    {
+                                                                        continue;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        string urlrelative = "";
+                                                                        if (listprojecthot[i].CategoryID == 1)
+                                                                        {
+                                                                            urlrelative = "/cac-du-an-da-thi-cong/" + ConvertKhongDau(hotProjectContent.Name) + "--" + hotProjectContent.ID;
+                                                                        }
+                                                                        else if (listprojecthot[i].CategoryID == 2)
+                                                                        {
+                                                                            urlrelative = "/tin-du-an-dang-thi-cong/" + ConvertKhongDau(hotProjectContent.Name) + "--" + hotProjectContent.ID;
+                                                                        }
+                                                                        <tr>
+                                                                            <td class="items" align="left" valign="top">
+                                                                                <a title="@listprojecthot[i].Name" href="@urlrelative">@listprojecthot[i].Name</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    }
+                                                                }
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="br"><div class="bl"><div class="bm"></div></div></div>
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".tab-news-hp1765899").hide();
+                $("ul#tab-news-hp1765899 li:first a").addClass("active").show();
+                $(".tab-news-hp1765899:first").show();
+                $("ul#tab-news-hp1765899 li a").click(function () {
+                    $("ul#tab-news-hp1765899 li a").removeClass("active");
+                    $(this).addClass("active");
+                    $(".tab-news-hp1765899").hide();
+                    var activeTab = $(this).attr("href");
+                    $(activeTab).fadeIn();
+                    return false;
+                });
+            });
+        </script>
+
+        <!---Begin cửa nhựa lõi thép-->
+        <div class="module box-center clearfix">
+            <div class='box-title cateproduct1'>
+                <h3>
+                    <span><a href='/cua-nhua-loi-thep'> CỬA NHỰA LÕI THÉP : TINPHONG WINDOW</a></span>
+                    <div class="extra_menu"></div>
+                </h3>
+                <div class="view-all">
+                    <a href='/cua-nhua-loi-thep'>Xem tất cả</a>
+                </div>
+            </div>
+            <div class="md">
+                <div class="mr">
+                    <div class="ml">
+                        <div class="box-cont2 ptype1">
+                            <ul class="listItem-row clearfix">
+
+                                <table cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+                                    <tbody>
+                                        <tr>
+                                            <!---Begin san pham 1-->
+                                            @foreach (var item in (List<Model.EF.Product>)ViewBag.CNLT)
+                                            {
+                                                var urlsanpham = "/" + ConvertKhongDau(item.SeoTitle) + "--" + item.ID;
+                                                <td class="items" align="center" valign="top" style="width:33%;">
+                                    <li id='p269063'>
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tbody>
+                                                <tr>
+
+                                                    <td class="text-center">
+                                                        <a title="@item.Name" class="hyperlink_img posi_tive" href="@urlsanpham" style="display:inline-block;height:225px;">
+                                                            <img title="@item.SeoTitle"
+                                                                 src="@item.Image"
+                                                                 width="225"
+                                                                 height="225"
+                                                                 alt="@item.Name"
+                                                                 style="border-width:0px;" />
+
+                                                        </a>
+                                                        <div class="icon-status"><i class='icon-24-promotion'></i></div>
+                                                        <h4>
+                                                            <a title="@item.SeoTitle"
+                                                               class="es_pTitle"
+                                                               href="@urlsanpham">
+                                                                @item.Name
+                                                            </a>
+                                                        </h4>
+                                                        <div class="km_dvhsp"><i></i></div>
+                                                        <div class="pri_master clearfix">
+                                                            <p class='old-price'><i>Giá bán: </i><strike>@item.Price.Value.ToString("N0") đ</strike></p>
+                                                            <p class='prices'>Giá KM: <b>@item.PromotionPrice.Value.ToString("N0") đ</b></p>
+                                                        </div>
+                                                        <a id="hlDetail" title="@item.Name"
+                                                           class="btnDetail" href="@urlsanpham">
+                                                            <span><span>Chi tiết</span></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    </td>
+                                            }@*ket thuc san pham 1*@
+                                            </tr>
+                                            </tbody>
+                                            </table>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="br"><div class="bl"><div class="bm"></div></div></div>
+                    </div>
+
+                    <div class="module box-center clearfix">
+                        <div class='box-title cateproduct1'>
+                            <h3>
+                                <span><a href='/cua-nhom-xingfa'> CỬA NHÔM XINGFA: TINPHONG ALUMINUM - XINGFA</a></span><div class="extra_menu"></div>
+                            </h3>
+                            <div class="view-all">
+                                <a href='/cua-nhom-xingfa'>Xem tất cả</a>
+                            </div>
+                        </div>
+                        <div class="md">
+                            <div class="mr">
+                                <div class="ml">
+                                    <div class="box-cont2 ptype1">
+                                        <ul class="listItem-row clearfix">
+                                            <table cellspacing="0" border="0"
+                                                   style="width:100%;border-collapse:collapse;">
+                                                <tr>
+                                                    @*bat dau san pham*@
+
+                                                    @foreach (var item in (List<Model.EF.Product>)ViewBag.CNXF)
+                                                    {
+                                                        var urlsanpham = "/" + ConvertKhongDau(item.SeoTitle) + "--" + item.ID;
+                                                        <td class="items" align="center" valign="top"
+                                                            style="width:33%;">
+                                                <li id='p266708'>
+                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="text-center">
+                                                                    <a title="@item.Name "
+                                                                       class="hyperlink_img posi_tive"
+                                                                       href="@urlsanpham"
+                                                                       style="display:inline-block;height:225px;">
+                                                                        <img title="@item.SeoTitle"
+                                                                             width="225"
+                                                                             height="225"
+                                                                             src="@item.Image" alt="@item.Name " style="border-width:0px;" />
+                                                                    </a>
+                                                                    <div class="icon-status"><i class='icon-24-promotion'></i></div>
+
+                                                                    <h4>
+                                                                        <a title="@item.SeoTitle" class="es_pTitle" href="@urlsanpham">@item.Name</a>
+                                                                    </h4><div class="km_dvhsp"><i></i></div><div class="pri_master clearfix"><p class='old-price'><i>Giá bán: </i><strike>@item.Price.Value.ToString("N0") đ</strike></p><p class='prices'>Giá KM: <b>@item.PromotionPrice.Value.ToString("N0") đ</b></p></div><a id="hlDetail" title="@item.SeoTitle " class="btnDetail" href="@urlsanpham"><span><span>Chi tiết</span></span></a>
+                                                                </td>
+
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </li>
+                                                </td>
+                                                    }@*ket thuc san pham 1*@
+                                                    </tr>
+                                                    </tbody>
+                                                    </table>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="br"><div class="bl"><div class="bm"></div></div></div>
+
+                            </div>
+                            <div class="module box-center clearfix">
+                                <div class='box-title cateproduct1'>
+                                    <h3>
+                                        <span><a href='/cua-kinh-cuong-luc'> CỬA KÍNH CƯỜNG LỰC TÍN PHONG TẠI TP Hồ Chí Minh</a></span><div class="extra_menu"></div>
+                                    </h3>
+                                    <div class="view-all"><a href='/cua-kinh-cuong-luc'>Xem tất cả</a></div>
+
+                                </div><div class="md">
+                                    <div class="mr">
+                                        <div class="ml">
+                                            <div class="box-cont2 ptype1">
+                                                <ul class="listItem-row clearfix">
+                                                    <table cellspacing="0" border="0"
+                                                           style="width:100%;border-collapse:collapse;">
+                                                        <tr>
+                                                            @*bat dau san pham*@
+                                                            @foreach (var item in (List<Model.EF.Product>)ViewBag.CKCL)
+                                                            {
+                                                                var urlsanpham = "/" + ConvertKhongDau(item.SeoTitle) + "--" + item.ID;
+                                                                <td class="items" align="center" valign="top" style="width:33%;">
+                                                        <li id='p459658'>
+                                                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center">
+                                                                            <a title="@item.Name" class="hyperlink_img posi_tive"
+                                                                               href="@urlsanpham"
+                                                                               style="display:inline-block;height:225px;">
+                                                                                <img title="@item.Name"
+                                                                                     width="225"
+                                                                                     height="225"
+                                                                                     src="@item.Image" alt="@item.SeoTitle"
+                                                                                     style="border-width:0px;" />
+                                                                            </a>
+                                                                            <div class="icon-status"><i class='icon-24-promotion'></i></div>
+                                                                            <h4>
+                                                                                <a title="@item.Name" class="es_pTitle" href="@urlsanpham">@item.Name</a>
+                                                                            </h4>
+                                                                            <div class="km_dvhsp"><i></i></div>
+                                                                            <div class="pri_master clearfix">
+                                                                                <p class='old-price'><i>Giá bán: </i><strike>@item.Price.Value.ToString("N0") đ</strike></p><p class='prices'>Giá KM: <b>@item.PromotionPrice.Value.ToString("N0") đ</b></p>
+                                                                            </div>
+                                                                            <a id="hlDetail" title="@item.Name" class="btnDetail" href="@urlsanpham"><span><span>Chi tiết</span></span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </li>
+                                                        </td>
+                                                            }@*ket thuc san pham 1*@
+                                                            </tr>
+                                                            </tbody>
+                                                            </table>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="br"><div class="bl"><div class="bm"></div></div></div>
+                                    </div>
+                                    <div class="module box-center clearfix">
+                                        <div class='box-title cateproduct1'>
+                                            <h3>
+                                                <span><a href='/cua-cuon-tu-dong-auto'> CỬA CUỐN TỰ ĐỘNG TÍN PHONG</a></span>
+                                                <div class="extra_menu"></div>
+                                            </h3><div class="view-all">
+                                                <a href='/cua-cuon-tu-dong-auto'>Xem tất cả</a>
+                                            </div>
+                                        </div><div class="md">
+                                            <div class="mr">
+                                                <div class="ml">
+                                                    <div class="box-cont2 ptype1">
+                                                        <ul class="listItem-row clearfix">
+                                                            <table cellspacing="0" border="0"
+                                                                   style="width:100%;border-collapse:collapse;">
+                                                                <tr>
+                                                                    @foreach (var item in (List<Model.EF.Product>)ViewBag.CCTD)
+                                                                    {
+                                                                        var urlsanpham = "/" + ConvertKhongDau(item.SeoTitle) + "--" + item.ID;
+                                                                        <td class="items" align="center" valign="top"
+                                                                            style="width:33%;">
+                                                                <li id='p421157'>
+                                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <a title="@item.Name" class="hyperlink_img posi_tive"
+                                                                                       href="@urlsanpham" style="display:inline-block;height:200px;">
+                                                                                        <img title="@item.SeoTitle" src="@item.Image"
+                                                                                             width="225"
+                                                                                             height="225"
+                                                                                             alt="@item.Name" style="border-width:0px;" />
+                                                                                    </a>
+                                                                                    <div class="icon-status"><i class='icon-24-promotion'></i></div>
+                                                                                    <h4>
+                                                                                        <a title="@item.Name" class="es_pTitle"
+                                                                                           href="@urlsanpham">@item.Name</a>
+                                                                                    </h4>
+                                                                                    <div class="km_dvhsp"><i></i></div><div class="pri_master clearfix">
+                                                                                        <p class='old-price'><i>Giá bán: </i><strike>@item.Price.Value.ToString("N0") đ</strike></p>
+                                                                                        <p class='prices'>Giá KM: <b>@item.PromotionPrice.Value.ToString("N0") đ</b></p>
+                                                                                    </div>
+                                                                                    <a id="hlDetail" title="@item.Name" class="btnDetail" href="@urlsanpham"><span><span>Chi tiết</span></span></a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </li>
+                                                                </td>
+                                                                    }
+
+                                                                    </tr>
+                                                                    </tbody>
+                                                                    </table>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><div class="br"><div class="bl"><div class="bm"></div></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div><div id="bottomPanel" class="clearfix"><div class="html-content-module"></div></div>
+                                    </div>
+                                    </div>
+                                    </div>

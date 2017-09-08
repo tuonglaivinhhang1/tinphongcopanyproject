@@ -1,0 +1,36 @@
+﻿@model List<Model.EF.Menu>
+
+<li class='link-logo'><a href='/'></a></li>
+@foreach (var menulevel1 in Model)
+{
+    if (menulevel1.Menu1.Count == 0)
+    {
+        
+        <li class='nav-1'>
+            <a href='@menulevel1.Link' target="@menulevel1.Target" class='first top-link'><span><b>@menulevel1.Name</b></span></a>
+
+
+        </li>
+    }
+    else
+    {
+        <li class='nav-6'>
+            <a href='@menulevel1.Link' target="@menulevel1.Target"  class='top-link '><span><b>@menulevel1.Name</b></span></a>
+            <ul>
+                @foreach (var menulevel2 in menulevel1.Menu1)
+                {
+                    <li><a target="@menulevel2.Target" href='@menulevel2.Link'>@menulevel2.Name</a></li>
+                }
+               
+            
+            </ul>
+        </li>
+    }
+
+
+}
+
+<li class='nav-6'>
+    <a href='https://www.facebook.com/tpwindow.cuadep/' target="_blank" class='top-link'><span class="fa fa-facebook"><b></b></span></a>
+</li>
+

@@ -1,0 +1,211 @@
+﻿@model  Model.EF.ProductCategory
+@using System.Globalization;
+@{
+    ViewBag.Title = Model.SeoTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listproduct = (List<Model.EF.Product>)ViewBag.ListProduct;
+}
+@functions {
+    public string ConvertKhongDau(string inputText)
+    {
+        string stFormD = inputText.Normalize(System.Text.NormalizationForm.FormD);
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        string str = "";
+        for (int i = 0; i <= stFormD.Length - 1; i++)
+        {
+            UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(stFormD[i]);
+            if (uc == UnicodeCategory.NonSpacingMark == false)
+            {
+                if (stFormD[i] == 'đ')
+                    str = "d";
+                else if (stFormD[i] == 'Đ')
+                    str = "D";
+                else if (stFormD[i] == '\r' | stFormD[i] == '\n')
+                    str = "";
+                else if (stFormD[i] == ' ' || stFormD[i] == ':')
+                    str = "-";
+                else
+                    str = stFormD[i].ToString();
+
+                sb.Append(str);
+            }
+
+        }
+        return sb.ToString();
+    }
+}
+
+
+<div class="fl mar-right col-550">
+    <div id="centerPanel">
+        <div class="module title_list_product">
+            <div class="box-title"><h1><span style="font-size:20px;">@Model.Name.ToUpper()</span></h1></div>
+            <div class="md">
+                <div class="mr">
+                    <div class="ml">
+                        <div class="box-cont2">
+
+                            @Html.Raw(Model.Description);
+                            <ul class="listItem-row clearfix">
+                                <div class="box-cont2 ptype2">
+                                    <ul class="listItem-row clearfix">
+                                        <table cellspacing="0" border="0"
+                                               style="width:100%;border-collapse:collapse;">
+                                            @for (int i = 0; i < listproduct.Count; i = i + 2)
+                                            {
+                                                var urlsanpham = "/" + ConvertKhongDau(listproduct[i].SeoTitle) + "--" + listproduct[i].ID;
+                                                @*bat dau hang 1*@
+
+                                                <tr>
+
+                                                    @*bat dau san pham 1 tren hang 1*@
+                                                    <td class="items" align="left" valign="top"
+                                                        style="width:50%;">
+                                            <li id='p269063' class="clearfix">
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                <h4>
+                                                                    <a title="@listproduct[i].SeoTitle" class="es_pTitle" href="@urlsanpham">@listproduct[i].Name</a>
+                                                                </h4>
+                                                                <a title="@listproduct[i].SeoTitle" class="hyperlink_img posi_tive" href="@urlsanpham" style="display:inline-block;height:200px;">
+                                                                    <img title="@listproduct[i].SeoTitle"
+                                                                         width="200"
+                                                                         height="200"
+                                                                         src="@listproduct[i].Image"
+                                                                         alt="@listproduct[i].SeoTitle"
+                                                                         style="border-width:0px;" />
+                                                                </a>
+                                                                <div class="icon-status"><i class='icon-24-promotion'></i></div>
+                                                                <div class="km_dvhsp"><i></i></div>
+                                                                <div class="pri_master clearfix">
+                                                                    <p class='old-price'><i>Giá bán: </i><strike>@listproduct[i].Price.Value.ToString("N0") đ</strike></p>
+                                                                    <p class='prices'>Giá KM: <b>@listproduct[i].PromotionPrice.Value.ToString("N0") đ</b></p>
+                                                                </div>
+                                                                <a id="hlDetail" title="@listproduct[i].Name" class="btnDetail" href="@urlsanpham"><span><span>Chi tiết</span></span></a>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </li>
+                                            </td>
+                                            @*ket thuc san pham 1 tren hàng 1*@
+                                            @if (listproduct[i + 1] != null)
+                                            {
+
+                                                var urlsanpham2 = "/" + ConvertKhongDau(listproduct[i + 1].SeoTitle) + "--" + listproduct[i + 1].ID;
+                                                @*bat dau san pham 2 tren hang 1*@
+                                                <td class="items last" align="left" valign="top" style="width:50%;">
+                                                <li id='p268555' class="clearfix">
+                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="text-center">
+                                                                    <h4>
+                                                                        <a title="@listproduct[i+1].SeoTitle"
+                                                                           class="es_pTitle" href="@urlsanpham2">@listproduct[i + 1].Name</a>
+                                                                    </h4>
+                                                                    <a title="@listproduct[i+1].SeoTitle"
+                                                                       class="hyperlink_img posi_tive"
+                                                                       href="@urlsanpham2" style="display:inline-block;height:200px;">
+                                                                        <img title="@listproduct[i+1].SeoTitle"
+                                                                             src="@listproduct[i+1].Image"
+                                                                             width="200"
+                                                                             height="200"
+                                                                             alt="@listproduct[i+1].SeoTitle" style="border-width:0px;" />
+                                                                    </a>
+                                                                    <div class="icon-status"><i class='icon-24-promotion'></i></div>
+                                                                    <div class="km_dvhsp"><i></i></div>
+                                                                    <div class="pri_master clearfix">
+                                                                        <p class='old-price'><i>Giá bán: </i><strike>@listproduct[i + 1].Price.Value.ToString("N0") đ</strike></p><p class='prices'>Giá KM: <b>@listproduct[i + 1].PromotionPrice.Value.ToString("N0") đ</b></p>
+                                                                    </div><a id="hlDetail" title="@listproduct[i + 1].SeoTitle"
+                                                                             class="btnDetail" href="@urlsanpham2"><span><span>Chi tiết</span></span></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </li>
+                                                </td>
+
+                                            }
+                                            else
+                                            {
+
+                                            }
+                                            </tr>
+                                                @*ket thuc hang 1*@
+                                            }
+                                            </table>
+                                        </ul>
+                                    </div>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="br"><div class="bl"><div class="bm"></div></div></div>
+            </div>
+            <script type='text/javascript'> var arr = new Array(269063, 268555, 268556, 268558, 268559, 268560, 268561, 485271, 485283, 485287, 485290, 516598) </script>
+            <script type="text/javascript" src="/Assets/Scripts/estore/product_front.js"></script>
+        </div>
+    </div>
+    <div class="fr col-190">
+        <div id="rightPanel">
+            <div id="es_supportOnline">
+                <div class="module box-support-online clearfix">
+                    <div class="module-header">
+                        <h3><span>Tư Vấn Khách Hàng</span></h3>
+                    </div>
+                    <div class="md">
+                        <div class="mr">
+                            <div class="ml">
+                                <div class="so_inner">
+                                    <div class='so_item first clearfix'>
+                                        <div class="support-type clearfix">
+                                            <a></a>
+                                            <span class="space"></span><a></a>
+                                        </div>
+                                        <label class="support-name icon-16-support">ĐẶT HÀNG 1</label>
+                                        <label class="support-name icon-16-phone">(028) 6680 2244</label>
+                                        <label class="support-name icon-16-email">tpwindow1@gmail.com </label>
+                                    </div>
+                                    <div class='so_item clearfix'>
+                                        <div class="support-type clearfix">
+                                            <a></a><span class="space"></span><a></a>
+                                        </div>
+                                        <label class="support-name icon-16-support">ĐẶT HÀNG 2</label>
+                                        <label class="support-name icon-16-phone">0901 417 789</label>
+                                        <label class="support-name icon-16-email">tpwindow2@gmail.com</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="br"><div class="bl"><div class="bm"></div></div></div>
+                </div>
+            </div>
+
+            <div class="module box-news-top clearfix">
+                <div class="module-header">
+                    <h3><span>QUẢNG CÁO</span></h3>
+                </div>
+                <div class="md">
+                    <div class="mr">
+                        <div class="ml">
+                            <div class="so_inner">
+                                <iframe data-aa='497197' src='//ad.a-ads.com/497197?size=160x600' scrolling='no' style='width:160px; height:600px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="br"><div class="bl"><div class="bm"></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

@@ -1,0 +1,53 @@
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\Model.dll.config
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\Model.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\Model.pdb
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\EntityFramework.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\PagedList.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.Helpers.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.Mvc.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.Razor.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\EntityFramework.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\PagedList.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.Helpers.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.Mvc.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.Razor.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\obj\Debug\Model.dll
+C:\Users\ThanhPhi\documents\visual studio 2017\Projects\TinPhongCompany\Model\obj\Debug\Model.pdb
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\Model.dll.config
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\Model.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\Model.pdb
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\EntityFramework.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\PagedList.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.Helpers.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.Mvc.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.Razor.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\EntityFramework.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\PagedList.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.Helpers.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.Mvc.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.Razor.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\obj\Debug\Model.dll
+C:\Users\ThanhPhi\Desktop\TinPhongCompany\Model\obj\Debug\Model.pdb

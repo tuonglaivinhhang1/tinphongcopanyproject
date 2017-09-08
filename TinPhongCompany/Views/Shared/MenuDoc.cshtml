@@ -1,0 +1,38 @@
+﻿@model List<Model.EF.Menu>
+
+<div class="module box product-category clearfix">
+    <div class="module-header">
+        <h3><span>TINPHONG - THẾ GIỚI CỬA ĐẸP</span></h3>
+    </div><div class="md">
+        <div class="mr">
+            <div class="ml">
+                <ul id='leftmenu' class='menu item-menu clearfix'>
+                    <li class='odd mul'>
+                        @foreach (var menulevel1 in Model)
+                        {
+                            if (menulevel1.Menu1.Count == 0)
+                            {
+                                <a class='' target="@menulevel1.Target" href='@menulevel1.Link'>
+                                    <span>@menulevel1.Name</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class='' target="@menulevel1.Target" href='@menulevel1.Link'>
+                                    <span>@menulevel1.Name</span>
+                                </a>
+                                <ul class='menu item-menu clearfix'>
+                                    @foreach (var menulevel2 in menulevel1.Menu1)
+                                    {
+                                        <li> <a href='@menulevel2.Link' target="@menulevel2.Target" class=''><span>@menulevel2.Name</span> </a></li>
+                                    }
+                                </ul>                         
+
+                            }
+                        }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><div class="br"><div class="bl"><div class="bm"></div></div></div>
+    </div>

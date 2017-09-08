@@ -1,0 +1,21 @@
+.support-type .clearfix{
+display: none !important;
+}
+
+.tabContents iframe,.detail-infor iframe{width:300px ! important;height:300px ! important;margin:0px auto !important;display:block ! important;}
+
+@media(max-width:767px){
+.list-product img{
+width:auto !important;
+display:block;
+max-width:100%;
+margin:auto;
+height:auto !important;
+}
+.list-product iframe{width:300px !important;margin:auto;}
+}
+
+
+
+
+
