@@ -1,0 +1,153 @@
+﻿@model PagedList.IPagedList<Model.EF.Content>
+@using PagedList.Mvc;
+@using System.Globalization;
+
+@{
+    ViewBag.Title = "Tổng hợp tin tức, dự án công ty";
+    ViewBag.Description = "cửa nhôm xingfa tphcm, cua nhom xingfa tphcm, cửa nhựa lõi thép tphcm, cua nhua loi thep tphcm,cửa kính cường lực tphcm,cua kinh cuong luc tphcm";
+    ViewBag.Keyword = "cửa nhôm xingfa tphcm, cửa nhựa lõi thép tphcm, cửa kính cường lực tphcm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@functions {
+    public string ConvertKhongDau(string inputText)
+    {
+        string stFormD = inputText.Normalize(System.Text.NormalizationForm.FormD);
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        string str = "";
+        for (int i = 0; i <= stFormD.Length - 1; i++)
+        {
+            UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(stFormD[i]);
+            if (uc == UnicodeCategory.NonSpacingMark == false)
+            {
+                if (stFormD[i] == 'đ')
+                    str = "d";
+                else if (stFormD[i] == 'Đ')
+                    str = "D";
+                else if (stFormD[i] == '\r' | stFormD[i] == '\n')
+                    str = "";
+                else if (stFormD[i] == ' ' || stFormD[i] == ':')
+                    str = "-";
+                else
+                    str = stFormD[i].ToString();
+
+                sb.Append(str);
+            }
+
+        }
+        return sb.ToString();
+    }
+}
+
+
+
+<div class="fl mar-right col-550">
+    <div id="centerPanel">
+        <div id="pnHaveData">
+            <div class="module clearfix">
+                <div class="box-title"><h3><span>TỔNG HỢP TIN TỨC - DỰ ÁN CÔNG TY</span></h3></div>
+                <div class="md">
+                    <div class="mr">
+                        <div class="ml">
+                            <div class="box-cont clearfix">
+                                cửa nhựa ở tại tphcm, cửa nhôm ở tại tphcm, cửa kính cường lực ở tại tphcm, cua nhua loi thep o tai tphcm, cua nhom cao cap o tai tphcm, cua kinh cuong luc o tai tphcm
+                                @foreach (var item in Model)
+                                {
+                                    string urlmaincontent = "/tin-tuc-du-an/" + ConvertKhongDau(item.Name) + "--" + item.ID;
+                                    <div class='news-item clearfix first'>
+                                        <a title="@item.Name" class="news-item-img"
+                                           href="@urlmaincontent">
+                                            <img title="@item.Name" src="@item.Image" width="290" height="266" alt="@item.Name"
+                                                 style="border-width:0px;" />
+                                        </a>
+                                        <h4>
+                                            <a title="@item.Name" href="@urlmaincontent">@item.Name</a>
+                                        </h4>
+                                        <p class="createdon">
+                                            Ngày đăng:
+                                            @item.CreatedDate
+
+                                        </p>
+                                        <p>@item.Description</p>
+                                        <div class="tar">
+                                            <a class="contine"
+                                               href="@urlmaincontent">
+                                                Xem thêm
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="br"><div class="bl"><div class="bm"></div></div></div>
+            </div><!--Bengin Paging-->
+            <div class="fillter clearfix">
+                <ul class="paging">
+                    <li class="clearfix">
+                        @Html.PagedListPager(Model, page => Url.Action("TinTucDuAn", new { page }))
+                    </li>
+                </ul>
+            </div><!--End Paging-->
+        </div>
+    </div>
+</div>
+
+
+<div class="fr col-190">
+    <div id="rightPanel">
+        <div id="es_supportOnline">
+            <div class="module box-support-online clearfix">
+                <div class="module-header">
+                    <h3><span>Tư Vấn Khách Hàng</span></h3>
+                </div>
+                <div class="md">
+                    <div class="mr">
+                        <div class="ml">
+                            <div class="so_inner">
+                                <div class='so_item first clearfix'>
+                                    <div class="support-type clearfix">
+                                        <a></a>
+                                        <span class="space"></span><a></a>
+                                    </div>
+                                    <label class="support-name icon-16-support">ĐẶT HÀNG 1</label>
+                                    <label class="support-name icon-16-phone">(028) 6680 2244</label>
+                                    <label class="support-name icon-16-email">tpwindow1@gmail.com </label>
+                                </div>
+                                <div class='so_item clearfix'>
+                                    <div class="support-type clearfix">
+                                        <a></a><span class="space"></span><a></a>
+                                    </div>
+                                    <label class="support-name icon-16-support">ĐẶT HÀNG 2</label>
+                                    <label class="support-name icon-16-phone">0901 417 789</label>
+                                    <label class="support-name icon-16-email">tpwindow2@gmail.com</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="br"><div class="bl"><div class="bm"></div></div></div>
+            </div>
+        </div>
+
+        <div class="module box-news-top clearfix">
+            <div class="module-header">
+                <h3><span>QUẢNG CÁO</span></h3>
+            </div>
+            <div class="md">
+                <div class="mr">
+                    <div class="ml">
+                        <div class="so_inner">
+                            <iframe data-aa='497197' src='//ad.a-ads.com/497197?size=160x600' scrolling='no' style='width:160px; height:600px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="br"><div class="bl"><div class="bm"></div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+       </div>
+    </div>
+</div>
+</div>

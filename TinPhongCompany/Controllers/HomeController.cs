@@ -15,8 +15,13 @@ namespace TinPhongCompany.Controllers
             ViewBag.CNXF = new ProductDao().getByCategory(2);
             ViewBag.CKCL = new ProductDao().getByCategory(3);
             ViewBag.CCTD = new ProductDao().getByCategory(4);
+            //báo giá
             ViewBag.ProjectHot = new ContentDao().getHotProject();
             ViewBag.ListRelativeProject = new ContentDao().getTopRelativeProject();
+
+            //tin tức - dự án
+            ViewBag.NewsHot = new ContentDao().getHotNews();
+            ViewBag.ListRelativeNews = new ContentDao().getTopRelativeNews();
 
             return View();
         }

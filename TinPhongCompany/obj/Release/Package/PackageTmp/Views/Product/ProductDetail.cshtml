@@ -1,0 +1,282 @@
+﻿@model Model.EF.Product
+@{
+    ViewBag.Title = Model.SeoTitle;
+    ViewBag.MainUrl = "https://www.tpwindow.vn/" + ViewBag.UrlMainProduct + "--" + Model.ID;
+    ViewBag.Description = Model.MetaDescriptions;
+    ViewBag.Keyword = Model.MetaKeywords;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var relative = (Model.EF.Product)ViewBag.Relative;
+}
+
+<div class="fr col-750">
+    <div id="centerPanel">
+        <div class="form-content">
+            <div class="ProductDetailContainer DetailItem clearfix">
+                <div id="ProductDetail" class="PrimaryProductDetails">
+                    <div class="BlockContent clearfix">
+                        <h1 class="translated">@Model.Name</h1>
+                        @{string imagesource = @Model.Image;}
+
+                        <img style="display:none;" src="@imagesource" />
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="1%" style="vertical-align: top; margin: 0 10px;">
+                                    <div class="ProductThumb">
+                                        <div style="display: none;" id="LightBoxImages"><a href="#" class="iframe"></a></div>
+                                        <div style="position: relative;" class="ProductThumbImage">
+                                            <a onclick='return hs.expand(this)' id='thumb1' href='@imagesource'
+                                               class='jqzoom' style='outline-style: none;
+                                                cursor: pointer; display: block; margin: auto;position: relative;
+                                                    height: 290px; width: auto;'><img src='@imagesource'></a>
+                                            <div class="icon-status"></div>
+                                        </div>
+                                        <div style="padding-left: 17px;" id="slideShow" class="ImageCarouselBox">
+                                            <div class="carousel listImages" style="padding-top: 5px; visibility: visible;
+                                                    overflow: hidden; position: relative; z-index: 2; left: 0px;">
+                                                <ul style="margin: 0pt; padding: 0pt; position: relative; list-style-type: none; z-index: 1;">
+                                                    <li style='overflow: hidden; float: left;'>
+                                                        <a id='image' href='@imagesource' onclick='return hs.expand(this)'
+                                                           onmouseover="showimage('@imagesource','@imagesource');">
+                                                            <img src='@imagesource'>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div><br class="clear" />
+                                        </div>
+
+
+                                    </div>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <div class="ProductMain mar-left">
+                                        <div class='DetailRow clearfix price-old'>
+                                            <label class='fl' style='width: 20%;'>
+                                                <b>Giá bán:</b>
+                                            </label>
+                                            <label class='fl old-price' style='width: 75%;'>
+                                                <em><b>@Model.Price.Value.ToString("N0") đ</b></em>
+                                            </label>
+                                        </div>
+                                        <div class="DetailRow clearfix price-new">
+                                            <label class="fl" style="width: 20%;">
+                                                <b>
+                                                    <span id="lbltextprice"> Giá KM:</span>
+                                                </b>
+                                                <em class="ProductPrice VariationProductPrice"></em>
+                                            </label>
+                                            <label class="fl" style="width: 75%;">
+                                                <em class="ProductPrice VariationProductPrice"><span id="lblprice"><b>@Model.PromotionPrice.Value.ToString("N0") đ</b></span></em>
+                                            </label>
+                                        </div>
+                                        <div id="pnWarranty" class="DetailRow clearfix">
+                                            <label class="fl" style="width: 20%;"><b>Bảo hành:</b></label>
+                                            <label class="fl" style="width: 75%;"><em>@Model.Waranty Tháng</em></label>
+                                        </div>
+                                        <div id="pnStatus" class="DetailRow clearfix">
+                                            <label class="fl" style="width: 20%;"><b>Trạng thái:</b></label>
+                                            <label class="fl" style="width: 75%;"><em>Hàng mới</em></label>
+                                        </div>
+                                        <div class="DetailRow editor_css">
+                                            <b>Miêu tả:</b><p class="Value detailDec">
+                                                <span id="lbldec" disabled="disabled">
+                                                    <h2 class="Value detailDec" style="line-height: 18px; padding: 0px;
+                                                        color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; margin: 0px 0px 5px !important;
+                                                        font-size: 12px !important;">
+                                                        <span id="ctl00_mainContent_ctl00_153_402998_lbldec">
+                                                            <b>@Model.Description</b><br />
+                                                            <b>Tell: 0901 417 789 - (028)6680 2244</b>
+
+                                                            <br />Email: tpwindow1@gmail.com - tpwindow2@gmail.com
+                                                        </span>
+                                                    </h2>
+                                                    <h2 class="Value detailDec" style="padding: 0px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; line-height: 18px; margin: 0px 0px 5px !important; font-size: 12px !important;"></h2>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="fb-like" data-href="https://www.tpwindow.vn/@ViewBag.UrlMainProduct--@Model.ID" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+        </div>
+        <!--product infomation-->
+
+        <div class="module tab-box clearfix ">
+            <div class="tab-modules clearfix">
+                <div class="clearfix">
+                    <ul class="tabs clearfix">
+                        <li><a href="#tabs1" class="active tab"><span><b>Thông tin sản phẩm</b></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="md">
+                <div class="mr">
+                    <div class="ml">
+                        <div class="tab-container fix_img">
+                            <div id="tabs1" class="box-cont tab-content editor_css">
+                                @Html.Raw(Model.ProductDetail);
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fb-comments" data-colorscheme="light" data-witdh="100%" data-href="https://www.tpwindow.vn/@ViewBag.UrlMainProduct--@Model.ID" data-mobile="true" data-numposts="5"></div>
+        <!--product comment-->
+        @*<div id="pnComment" class="box_main_all">
+            <div class="comment-panel">
+                <div class="title-commnet"><h3>Bình luận sản phẩm</h3></div>
+                <div class="form-comment">
+                    <ul class="clearfix">
+                        <li class="clearfix">
+                            <p class="reset">
+                                <label>Họ tên</label>
+                                <label class="martop-5"><input name="" type="text" id="txtComFullName" maxlength="100" /></label>
+                            </p>
+                            <p class="reset">
+                                <label>Địa chỉ email <span class="clred">(*)</span></label>
+                                <label class="martop-5"><input name="" type="text" id="txtComEmail" maxlength="100" /></label>
+                            </p>
+                            <p class="reset last">
+                                <label>Tiêu đề bình luận <span class="clred">(*)</span></label>
+                                <label class="martop-5"><input name="" type="text" id="txtComTitle" maxlength="200" /></label>
+                            </p>
+                        </li>
+                        <li class="clearfix rate-star">
+                            Đánh giá của bạn về sản phẩm:
+
+                        </li>
+                        <li class="clearfix">
+                            <textarea name="" id="txtComContent"
+                                      onfocus="if (this.value==&#39;Viết ý kiến của bạn...&#39;) this.value=&#39;&#39;;"
+                                      onblur="if (this.value==&#39;&#39;) this.value=&#39;Viết ý kiến của bạn...&#39;;">Viết &#253; kiến của bạn...</textarea>
+                        </li>
+                        <li class="clearfix capchart">
+
+                        </li>
+                        <li class="clearfix"><a href="javascript:void(0);" class="send-comment">Gửi bình luận</a></li>
+                    </ul>
+                </div>
+                <div class="list-comment">
+                    <h3>
+                        <span>Danh sách bình luận</span>
+                        Có <b>1</b> phản hồi về <b>@Model.Name</b>
+                    </h3>
+                    <ul class="nd_comment" id="div_fix">
+                        <li class="clearfix">
+                            <p class="infor-user">
+                                <span class="name-user">
+                                    <span id="lblName">đỗ</span>
+                                </span>-
+                                <span class="email-user">
+                                    <span id="lblEmail">dohieu@gmail.com</span>
+                                </span>-
+                                <span class="date-time">
+                                    (<span id="lbldatetime">09:02 - 03/04/2013</span>)
+                                </span>
+                            </p>
+                            <label class="title-user"><b><span id="lblTitle">hiếu</span></b></label>
+                            <p class="text-left">Đẹp, chất lượng cao - có điều giá hơi mắc.</p>
+
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>*@
+        <!--San Pham lien quan--><!--San Pham cung loai-->
+        <div class="module clearfix">
+            <div class="box-title"><h3><span>Sản phẩm cùng loại</span></h3></div>
+            <div class="md">
+                <div class="mr">
+                    <div class="ml">
+                        <div class="box-cont2">
+                            <ul class="listItem-row clearfix">
+                                <div class="box-cont2 ptype3">
+                                    <ul class="listItem-row clearfix">
+                                        <table cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+                                            <tr>
+                                                <td class="items" align="left" valign="top" style="width:33%;">
+                                        <li id='p575292' class="clearfix">
+                                            <div class="icon-status"><i class='icon-24-hot'></i></div>
+                                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        @{ string url = "/" + ViewBag.Url + "--" + relative.ID;}
+                                                        <td>
+                                                            <a title="@relative.MetaTitle" class="hyperlink_img posi_tive"
+                                                               href="@url" style="display:inline-block;height:290px;">
+                                                                <img title="@relative.SeoTitle" src="@relative.Image" alt="@relative.MetaTitle" style="border-width:0px;" />
+                                                            </a>
+                                                        </td>
+                                                        <td class="reset">
+                                                            <h4><a title="@relative.Name" class="es_pTitle" href="@url"></a>@relative.Name</h4>
+                                                            <div class="mo-ta-sp"><br />Tell: 0901 417 789</div>
+                                                            <div class="km_dvhsp"><i></i></div>
+                                                            <div class="pri_master clearfix">
+                                                                <p class='old-price'><i>Giá bán: </i><strike>@relative.Price.Value.ToString("N0") đ</strike></p>
+                                                                <p class='prices'>Giá KM: <b>@relative.PromotionPrice.Value.ToString("N0") đ</b></p>
+                                                            </div>
+                                                            <a id="hlDetail" title="" class="btnDetail" href="@url"><span><span>Chi tiết</span></span></a>
+                                                        </td>
+
+
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </li>
+                                        </td>
+
+                                        </tr>
+                                        </table>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="br"><div class="bl"><div class="bm"></div></div></div>
+        </div>
+        <div style="background-color: transparent;text-align:center">
+
+        </div>
+        <div class="html-content-module">
+
+            <script type="text/javascript">
+                jQuery(function ($) {
+                    $('body').append('<a style="display:none;" class="callus" href="tel:0901417789">0901 417 789</a>');
+                });
+            </script>
+            <style media="screen and (max-width:767px)" type="text/css">
+                a.callus {
+                    display: block !important;
+                    position: fixed;
+                    z-index: 9999;
+                    bottom: 16px;
+                    left: 15px;
+                    background: #FE9A2E url(/Assets/statics.vietmoz.info/img/ico/glyphicons/earphone-white.png) no-repeat;
+                    background-position: 5 px center;
+                    background-size: 20px;
+                    border-radius: 1000px;
+                    padding: 5px 20px 5px 20px;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 25px;
+                    color: #fff;
+                }
+            </style>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

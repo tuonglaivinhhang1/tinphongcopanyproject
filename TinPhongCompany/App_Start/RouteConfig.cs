@@ -26,27 +26,33 @@ namespace TinPhongCompany
                namespaces: new[] { "TinPhongCompany.Controllers" }
            );
             routes.MapRoute(
-                   name: "Tin Cong Ty",
-                   url: "tin-tuc-cong-ty",
-                   defaults: new { controller = "Content", action = "TinCongTy", id = UrlParameter.Optional },
+                   name: "Tin Tuc Du An",
+                   url: "tin-tuc-du-an",
+                   defaults: new { controller = "Content", action = "TinTucDuAn", id = UrlParameter.Optional },
                    namespaces: new[] { "TinPhongCompany.Controllers" }
                );
             routes.MapRoute(
-                  name: "Tin Du An Dang Thi Cong",
-                  url: "tin-du-an-dang-thi-cong",
-                  defaults: new { controller = "Content", action = "TinDuAnDangThiCong", id = UrlParameter.Optional },
-                  namespaces: new[] { "TinPhongCompany.Controllers" }
-              );
+             name: "Tin Tuc Du An detail",
+             url: "tin-tuc-du-an/{metatitle}--{id}",
+             defaults: new { controller = "Content", action = "TinTucDuAnDetail", id = UrlParameter.Optional },
+             namespaces: new[] { "TinPhongCompany.Controllers" }
+         );
+            //routes.MapRoute(
+            //      name: "Tin Du An Dang Thi Cong",
+            //      url: "tin-du-an-dang-thi-cong",
+            //      defaults: new { controller = "Content", action = "TinDuAnDangThiCong", id = UrlParameter.Optional },
+            //      namespaces: new[] { "TinPhongCompany.Controllers" }
+            //  );
+            //routes.MapRoute(
+            //      name: "Triet Ly Kinh Doanh",
+            //      url: "triet-ly-kinh-doanh",
+            //      defaults: new { controller = "Content", action = "TrietLyKinhDoanh", id = UrlParameter.Optional },
+            //      namespaces: new[] { "TinPhongCompany.Controllers" }
+            //  );
             routes.MapRoute(
-                  name: "Triet Ly Kinh Doanh",
-                  url: "triet-ly-kinh-doanh",
-                  defaults: new { controller = "Content", action = "TrietLyKinhDoanh", id = UrlParameter.Optional },
-                  namespaces: new[] { "TinPhongCompany.Controllers" }
-              );
-            routes.MapRoute(
-                  name: "Cac Du An Da Thi Cong",
-                  url: "cac-du-an-da-thi-cong",
-                  defaults: new { controller = "Content", action = "TinDuAnDaThiCong", id = UrlParameter.Optional },
+                  name: "Bao Gia",
+                  url: "bao-gia",
+                  defaults: new { controller = "Content", action = "BaoGia", id = UrlParameter.Optional },
                   namespaces: new[] { "TinPhongCompany.Controllers" }
               );
             routes.MapRoute(
@@ -80,9 +86,9 @@ namespace TinPhongCompany
                namespaces: new[] { "TinPhongCompany.Controllers" }
            );
             routes.MapRoute(
-              name: "du an da thi cong detail",
-              url: "cac-du-an-da-thi-cong/{metatitle}--{id}",
-              defaults: new { controller = "Content", action = "TinDuAnDaThiCongDetail", id = UrlParameter.Optional },
+              name: "bao gia detail",
+              url: "bao-gia/{metatitle}--{id}",
+              defaults: new { controller = "Content", action = "BaoGiaDetail", id = UrlParameter.Optional },
               namespaces: new[] { "TinPhongCompany.Controllers" }
           );
 

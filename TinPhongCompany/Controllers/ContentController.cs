@@ -11,25 +11,28 @@ namespace TinPhongCompany.Controllers
     public class ContentController : Controller
     {
         // GET: Content
-        public ActionResult TinCongTy()
+        public ActionResult TinTucDuAn()
         {
-            return View();
+            var listcontent = new ContentDao().getAllContent_News(1, 10);
+            return View(listcontent);
         }
-        public ActionResult TinDuAnDangThiCong()
+        public ActionResult TinTucDuAnDetail(long id)
         {
-            return View();
+
+            var content = new ContentDao().getByID(id);
+            ViewBag.UrlMainContent = ConvertKhongDau(content.Name);
+            ViewBag.Top5 = new ContentDao().gettop5();
+
+            return View(content);
         }
-        public ActionResult TrietLyKinhDoanh()
+
+        public ActionResult BaoGia()
         {
-            return View();
-        }
-        public ActionResult TinDuAnDaThiCong()
-        {
-            var listcontent = new ContentDao().getAllContent_DaThiCong(1, 10);
+            var listcontent = new ContentDao().getAllContent_BaoGia(1, 10);
 
             return View(listcontent);
         }
-        public ActionResult TinDuAnDaThiCongDetail(long id)
+        public ActionResult BaoGiaDetail(long id)
         {
             var content = new ContentDao().getByID(id);
             ViewBag.UrlMainContent = ConvertKhongDau(content.Name);

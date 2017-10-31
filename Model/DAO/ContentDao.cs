@@ -32,7 +32,7 @@ namespace Model.DAO
 
 
         }
-        public IEnumerable<Content> getAllContent_DaThiCong(int page, int pageSize)
+        public IEnumerable<Content> getAllContent_BaoGia(int page, int pageSize)
         {
 
             var content = (
@@ -46,6 +46,22 @@ namespace Model.DAO
 
 
         }
+        public IEnumerable<Content> getAllContent_News(int page, int pageSize)
+        {
+
+            var content = (
+                    from a in tinphong.Contents
+                    where a.CategoryID == 2
+                    orderby a.ModifiedDate descending
+                    select a
+
+                ).ToPagedList(page, pageSize);
+            return content;
+
+
+        }
+
+
         public bool Insert(Content item)
         {
             try
@@ -89,14 +105,27 @@ namespace Model.DAO
         }
         public Content getHotProject()
         {
-            return tinphong.Contents.Where(x => x.Status == true && (x.CategoryID == 1||x.CategoryID==2)).OrderByDescending(x => x.ModifiedDate).Take(1).FirstOrDefault();
+            return tinphong.Contents.Where(x => x.Status == true && (x.CategoryID == 1)).OrderByDescending(x => x.ModifiedDate).Take(1).FirstOrDefault();
 
         }
         public List<Content> getTopRelativeProject()
         {
-            return tinphong.Contents.Where(x => x.Status == true && (x.CategoryID == 1 || x.CategoryID == 2)).OrderByDescending(x => x.ModifiedDate).Take(4).ToList();//trừ thằng đầu tiên
+            return tinphong.Contents.Where(x => x.Status == true && (x.CategoryID == 1)).OrderByDescending(x => x.ModifiedDate).Take(4).ToList();//trừ thằng đầu tiên
 
         }
+
+        public Content getHotNews()
+        {
+            return tinphong.Contents.Where(x => x.Status == true && (x.CategoryID == 2)).OrderByDescending(x => x.ModifiedDate).Take(1).FirstOrDefault();
+
+        }
+        public List<Content> getTopRelativeNews()
+        {
+            return tinphong.Contents.Where(x => x.Status == true && (x.CategoryID == 2)).OrderByDescending(x => x.ModifiedDate).Take(4).ToList();//trừ thằng đầu tiên
+
+        }
+
+
         public List<Content> gettop5()
         {
             return tinphong.Contents.Where(x => x.Status == true).OrderBy(x => Guid.NewGuid()).Take(5).ToList();

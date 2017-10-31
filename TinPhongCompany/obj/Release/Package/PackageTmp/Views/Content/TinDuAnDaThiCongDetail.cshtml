@@ -1,0 +1,115 @@
+﻿
+@model Model.EF.Content
+@using System.Globalization;
+@{
+    ViewBag.Title = Model.SeoTitle;
+    ViewBag.Description = Model.Description;
+    ViewBag.Keyword = Model.MetaKeywords;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@functions {
+    public string ConvertKhongDau(string inputText)
+    {
+        string stFormD = inputText.Normalize(System.Text.NormalizationForm.FormD);
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        string str = "";
+        for (int i = 0; i <= stFormD.Length - 1; i++)
+        {
+            UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(stFormD[i]);
+            if (uc == UnicodeCategory.NonSpacingMark == false)
+            {
+                if (stFormD[i] == 'đ')
+                    str = "d";
+                else if (stFormD[i] == 'Đ')
+                    str = "D";
+                else if (stFormD[i] == '\r' | stFormD[i] == '\n')
+                    str = "";
+                else if (stFormD[i] == ' ' || stFormD[i] == ':')
+                    str = "-";
+                else
+                    str = stFormD[i].ToString();
+
+                sb.Append(str);
+            }
+
+        }
+        return sb.ToString();
+    }
+}
+
+
+
+<div class="fr col-750">
+    <div id="centerPanel">
+        <div class="module box-breakcrumb">
+
+        </div>
+        <div class="news-detail editor_css">
+            <div class="clearfix" style="overflow: hidden">
+                <h1>@Model.Name</h1>
+                <div class='nws-d-update'>
+                    Cập nhật
+                    @Model.ModifiedDate
+
+                </div>
+                <p class='nws-d-short'>
+                    @Model.Description
+                </p>
+                <p class='nws-d-full'>
+                    @Html.Raw(Model.Detail);
+                </p>
+                <div id="fb-root"></div>
+
+                <div class="fb-like" data-href="https://www.tpwindow.vn/cac-du-an-da-thi-cong/@ViewBag.UrlMainContent--@Model.ID" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                <div class="fb-comments" data-colorscheme="light" data-witdh="100%" data-href="https://www.tpwindow.vn/cac-du-an-da-thi-cong/@ViewBag.UrlMainContent--@Model.ID" data-mobile="true" data-numposts="5"></div>
+
+            </div><!-- AddThis Button END -->
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/Assets/Modules/PriceComparison/bundles/Estore/NewsDetail/newscommentde24.js?v=20142503"></script>
+    <script type="text/javascript">
+        wpCommentNews.init(3207, 158346);
+    </script>
+    <div class="other-news">
+        <h3><span>Tin đã đăng:</span></h3>
+        <ul>
+            @foreach (var item in (List<Model.EF.Content>)ViewBag.Top5)
+            {
+                string urlrelativecontent = "";
+
+                if (item.CategoryID == 1)
+                {
+                    urlrelativecontent = "/cac-du-an-da-thi-cong/" + ConvertKhongDau(item.Name) + "--" + item.ID;
+                }
+                else if(item.CategoryID==2)
+                {
+                    urlrelativecontent = "/tin-du-an-dang-thi-cong/" + ConvertKhongDau(item.Name) + "--" + item.ID;
+                }
+                else
+                {
+                    urlrelativecontent = "/tin-cong-ty/" + ConvertKhongDau(item.Name) + "--" + item.ID;
+                }
+                <li class="clearfix">
+                    <a title="@item.Name"
+                       href="@urlrelativecontent">
+                        @item.Name
+                    </a>
+                    <span class="fr clgray s11">@item.CreatedDate</span>
+                </li>
+            }
+
+
+        </ul>
+    </div>
+    <div style="background-color: transparent;text-align:center">
+
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
