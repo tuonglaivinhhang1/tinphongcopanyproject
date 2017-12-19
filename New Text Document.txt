@@ -1,4 +1,4 @@
-﻿using Model.EF;
+using Model.EF;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -20,6 +20,8 @@ namespace TinPhongCompany
         [Given(@"I am logged into the site as an administrator")]
         public void GivenIAmLoggedIntoTheSiteAsAnAdministrator()
         {
+
+
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--disable-extensions");
             options.AddArgument("test-type");
@@ -32,12 +34,14 @@ namespace TinPhongCompany
             driver.FindElement(By.Id("Username")).SendKeys("tpwindow@tpwindow.vn");
             driver.FindElement(By.Id("Password")).SendKeys("tranlamphong0107"); //hidden
             driver.FindElement(By.ClassName("submit")).Click();
+
         }
 
         [When(@"I go to page add product")]
         public void WhenIGoToPageAddProduct()
         {
             driver.Navigate().GoToUrl("http://www.tinphong.com/admin/product/addproduct/");
+
         }
 
         [When(@"I enter the following information")]
@@ -89,12 +93,7 @@ namespace TinPhongCompany
 
             driver.FindElement(By.Id("ViewCount")).SendKeys(product.ViewCount.ToString());
 
-        }
 
-        [When(@"I click the ""(.*)"" button")]
-        public void WhenIClickTheButton(string p0)
-        {
-            driver.FindElement(By.XPath("//*[@type='submit']")).Click();
         }
 
         [When(@"I enter the following information with empty name door")]
@@ -144,6 +143,7 @@ namespace TinPhongCompany
             }
 
             driver.FindElement(By.Id("ViewCount")).SendKeys(product.ViewCount.ToString());
+
         }
 
         [When(@"I enter the following information with price<(.*)")]
@@ -192,10 +192,9 @@ namespace TinPhongCompany
             {
                 content_data[1].Click();
             }
+
             driver.FindElement(By.Id("ViewCount")).SendKeys(product.ViewCount.ToString());
-
         }
-
         [When(@"I enter the following information with viewcount<(.*)")]
         public void WhenIEnterTheFollowingInformationWithViewcount(int p0, Table table)
         {
@@ -244,7 +243,6 @@ namespace TinPhongCompany
             }
 
             driver.FindElement(By.Id("ViewCount")).SendKeys(product.ViewCount.ToString());
-
         }
 
         [When(@"I enter the following information with empty image field")]
@@ -290,25 +288,36 @@ namespace TinPhongCompany
             driver.FindElement(By.Id("ViewCount")).SendKeys(product.ViewCount.ToString());
         }
 
-        [Then(@"I should see page view  ""(.*)""")]
-        public void ThenIShouldSeePageView(string p0)
+
+        [When(@"I click the ""(.*)"" button")]
+        public void WhenIClickTheButton(string p0)
+        {
+            driver.FindElement(By.XPath("//*[@type='submit']")).Click();
+
+        }
+
+        [Then(@"I should see view ""(.*)""")]
+        public void ThenIShouldSeeView(string p0)
+        {
+            Assert.AreEqual(p0.ToLower(), driver.Title.ToLower());
+            driver.Close();
+
+        }
+
+        [Then(@"I should see view ""(.*)"" again")]
+        public void ThenIShouldSeeViewAgain(string p0)
         {
             Assert.AreEqual(p0.ToLower(), driver.Title.ToLower());
             driver.Close();
         }
 
-        [Then(@"I should see page view ""(.*)"" again")]
-        public void ThenIShouldSeePageViewAgain(string p0)
-        {
-            Assert.AreEqual(p0.ToLower(), driver.Title.ToLower());
-            driver.Close();
-        }
 
-        [Then(@"I should see page view ""(.*)"" again because error")]
-        public void ThenIShouldSeePageViewAgainBecauseError(string p0)
+        [Then(@"I should see view ""(.*)"" again because error")]
+        public void ThenIShouldSeeViewAgainBecauseError(string p0)
         {
             Assert.AreEqual(p0.ToLower(), driver.Title.ToLower());
             driver.Close();
         }
     }
 }
+

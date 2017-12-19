@@ -24,3 +24,4 @@ C:\Users\ThanhPhi\Desktop\ASPNET MVC5\tinphongproject\TinPhongCompany\Model\bin\
 C:\Users\ThanhPhi\Desktop\ASPNET MVC5\tinphongproject\TinPhongCompany\Model\bin\Release\System.Web.WebPages.Razor.xml
 C:\Users\ThanhPhi\Desktop\ASPNET MVC5\tinphongproject\TinPhongCompany\Model\obj\Release\Model.dll
 C:\Users\ThanhPhi\Desktop\ASPNET MVC5\tinphongproject\TinPhongCompany\Model\obj\Release\Model.pdb
+C:\Users\ThanhPhi\Desktop\ASPNET MVC5\tinphongproject\TinPhongCompany\Model\obj\Release\Model.csprojResolveAssemblyReference.cache

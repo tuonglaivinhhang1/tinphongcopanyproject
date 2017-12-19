@@ -67,7 +67,7 @@ namespace TinPhongCompany
         public virtual void FeatureBackground()
         {
 #line 6
-#line 7
+  #line 7
   testRunner.Given("I am logged into the site as an administrator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
@@ -80,7 +80,7 @@ namespace TinPhongCompany
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+  this.FeatureBackground();
 #line 10
   testRunner.When("I go to page add product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -121,7 +121,7 @@ this.FeatureBackground();
 #line 14
   testRunner.And("I click the \"Thêm\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
-  testRunner.Then("I should see view \"Danh Sách Sản Phẩm\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("I should see page view  \"Danh Sách Sản Phẩm\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -134,7 +134,7 @@ this.FeatureBackground();
 #line 17
  this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+  this.FeatureBackground();
 #line 18
   testRunner.When("I go to page add product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -173,7 +173,7 @@ this.FeatureBackground();
 #line 22
   testRunner.And("I click the \"Thêm\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
-  testRunner.Then("I should see view \"Thêm Sản Phẩm\" again", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("I should see page view \"Thêm Sản Phẩm\" again", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -186,7 +186,7 @@ this.FeatureBackground();
 #line 25
 this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+  this.FeatureBackground();
 #line 26
   testRunner.When("I go to page add product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -227,7 +227,7 @@ this.FeatureBackground();
 #line 30
   testRunner.And("I click the \"Thêm\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
-  testRunner.Then("I should see view \"Thêm Sản Phẩm\" again because error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("I should see page view \"Thêm Sản Phẩm\" again because error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -237,11 +237,11 @@ this.FeatureBackground();
         public virtual void CreateANewDoorItemRecordWithViewcount0()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new door item record with viewcount<0", ((string[])(null)));
-#line 32
+#line 33
 this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
-#line 33
+  this.FeatureBackground();
+#line 34
   testRunner.When("I go to page add product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -276,12 +276,12 @@ this.FeatureBackground();
                         "Cửa đi KINGLONG 2 cánh trượt tại TPHCM, quận 10, quận Thủ đức, Bình Thạnh",
                         "true",
                         "-1000"});
-#line 34
+#line 35
   testRunner.And("I enter the following information with viewcount<0", ((string)(null)), table4, "And ");
-#line 37
-  testRunner.And("I click the \"Thêm\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
-  testRunner.Then("I should see view \"Thêm Sản Phẩm\" again because error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("I click the \"Thêm\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+  testRunner.Then("I should see page view \"Thêm Sản Phẩm\" again because error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -291,11 +291,11 @@ this.FeatureBackground();
         public virtual void CreateANewDoorItemRecordWithEmptyImageField()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new door item record with empty image field", ((string[])(null)));
-#line 40
+#line 41
 this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
-#line 41
+  this.FeatureBackground();
+#line 42
   testRunner.When("I go to page add product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -327,13 +327,13 @@ this.FeatureBackground();
                         "Cửa đi KINGLONG 2 cánh trượt",
                         "Cửa đi KINGLONG 2 cánh trượt tại TPHCM, quận 10, quận Thủ đức, Bình Thạnh",
                         "true",
-                        "-1000"});
-#line 42
+                        "1000"});
+#line 43
   testRunner.And("I enter the following information with empty image field", ((string)(null)), table5, "And ");
-#line 45
-  testRunner.And("I click the \"Thêm\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 46
-  testRunner.Then("I should see view \"Thêm Sản Phẩm\" again because error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("I click the \"Thêm\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+  testRunner.Then("I should see page view \"Thêm Sản Phẩm\" again because error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
